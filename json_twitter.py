@@ -9,6 +9,8 @@ def create_twitter_json(consumer_key, consumer_secret, token_key, token_secret, 
 
     (str, str, str, str, str) -> None
 
+    Create a json file with account data
+
     """
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(token_key, token_secret)
@@ -20,6 +22,13 @@ def create_twitter_json(consumer_key, consumer_secret, token_key, token_secret, 
 
 
 def get_inf_from_json(path, keys):
+    """
+
+    (str, str) -> str
+
+    Return value with a key in dict
+
+    """
     with open(path, encoding='utf-8') as file:
         js = json.loads(file.read())
     keys = keys.split('.')
